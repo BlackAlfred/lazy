@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+   <div id="box">
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea velit corporis vitae cupiditate! Culpa placeat quaerat doloremque quod ullam rerum dolor officia debitis sequi ratione enim delectus, vero eius assumenda. Tempora sequi accusantium delectus molestias voluptatum ex dolores doloribus et animi nobis natus provident cum voluptate vero, sunt praesentium fugiat.
+       <img src="./blur/blur4.jpg" data-src="./img/cat4.jpg" alt="" class="blur">
+        Minus, incidunt, totam? Molestias repellendus consequuntur ea repudiandae, rem odit voluptatibus atque sequi sit dolor nemo quos non reprehenderit illo eius illum excepturi itaque doloremque. Asperiores nostrum iure alias aliquid ea, laboriosam, vero doloremque veniam, similique illum quaerat eligendi. Perspiciatis enim porro obcaecati quos ad molestiae, temporibus ipsa libero assumenda!</p>
+       <img src="./blur/blur3.jpg" data-src="./img/cat3.jpg" alt="" class="blur">
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta aut eaque rem excepturi id ex facere suscipit nulla, quos inventore tenetur dignissimos recusandae. Illum excepturi numquam nulla ducimus ad! Eveniet aut, veritatis repudiandae, cumque nobis nulla impedit. Dicta quae voluptatum consectetur voluptatibus obcaecati nisi aliquid dolores porro veritatis sit omnis veniam quisquam delectus ut animi voluptas excepturi tempore similique soluta, deserunt nihil.
+       <img src="./blur/blur5.jpg" data-src="./img/cat5.jpg" alt="" class="blur">
+        Perspiciatis, blanditiis distinctio alias recusandae, esse, eaque consequatur ad temporibus dignissimos quia doloribus accusamus odio fuga sequi nostrum!</p>
+       <img src="./blur/blur2.jpg" data-src="./img/cat2.jpg" alt="" class="blur">
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias accusantium, voluptas laboriosam est porro eos illum natus numquam excepturi pariatur. Ut, illo mollitia laborum sunt! Laborum pariatur deleniti porro, similique iusto quidem maxime doloribus consectetur aliquam nihil minima id.</p>
+       <img src="./blur/blur1.jpg" data-src="./img/cat1.jpg" alt="" class="blur">
+       
+       
+       
+       
+       
+       
+       
+       
+       
+   </div> 
+</body>
+<script>
+    let counter = 0;
+    const getPars = function(element) {
+        console.log(element, element.getBoundingClientRect());
+        console.log('window.innerHeight: ', window.innerHeight);
+    }
+    const visible = function(element){
+        return element.getBoundingClientRect().top < (window.innerHeight - 50)
+        
+    }
+    const lazyload = function(){
+        counter++;
+        let imgs = document.querySelectorAll('img.blur');
+        for (let i = 0; i < imgs.length; i++){
+        //getPars(imgs[i])
+        if (visible(imgs[i])){
+        let path = imgs[i].getAttribute('data-src');
+        imgs[i].setAttribute('src',path);
+    }
+    }
+    }
+    document.addEventListener('DOMContentLoaded',function(){
+    document.addEventListener('scroll',lazyload)
+        
+        
+    });
+    
+    
+    
+    
+    </script>
+</html>
